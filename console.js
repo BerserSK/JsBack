@@ -24,8 +24,7 @@ console.log('|     2        Registrarse                 |');
 console.log('|     3        Iniciar sesion              |');
 console.log('|     4        Preguntas y respuestas      |');
 console.log('|     5        Calendario                  |');
-console.log('|     6        Despedida                   |');
-console.log('|     7        Fin de Programa             |');
+console.log('|     6        Fin de Programa             |');
 console.log('|                                          |');
 console.log('| ---------------------------------------- |');
 console.log('|     Nota: este programa esta realizado   |');
@@ -88,12 +87,6 @@ function Menu(opt){
           schedule();
       break;
       case '6':
-        console.log('                        ');
-        console.log('====== Despedida ====== ');
-        console.log('                        ');
-        despedida();
-      break;
-      case '7':
         console.log('====================================');
         console.log('|       Fin del programa !Adios¡   |');
         console.log('====================================');
@@ -104,22 +97,39 @@ function Menu(opt){
 
 // Raiz Cuadrada ------------------------
 function raiz(){
-    rl.question('---> Ingresa el numero ', function(num1){
+    console.log('======================================== ')
+    console.log('             Raiz Cuadrada               ')
+    console.log('======================================== ')
+    console.log('                                         ')
+    rl.question('===> Ingresa el numero ', function(num1){
         const resultado = parseInt(Math.sqrt(num1));
-        console.log(`La raiz cuadrada de ${num1} es ${resultado}`);
+        console.log('                                         ');
+        console.log(` >>> La raiz cuadrada de ${num1} es ${resultado} <<< `);
+        console.log('                                         ');
         rl.close();
     })
 }
 
 // Registrar Usuario ------------------------
 function register(){
+    console.log('======================================== ')
+    console.log('               Registrarse               ')
+    console.log('======================================== ')
+    console.log('                                         ');
     rl.question('---> Ingrese sus nombres ', function(name){
+        console.log('                                         ');
         rl.question('---> Ingrese sus apellidos ', function(lastName){
+            console.log('                                         ');
             rl.question('---> Ingrese su fecha de nacimiento ', function(date){
+                console.log('                                         ');
                 rl.question('---> Ingrese su edad ', function(age){
+                    console.log('                                         ');
                     rl.question('---> Ingrese su numero de telefono ', function(phone){
+                        console.log('                                         ');
                         rl.question('---> Ingrese su correo electronico ', function(email){
+                            console.log('                                         ');
                             rl.question('---> Ingrese su tipo de sangre ',function(rh){
+                                console.log('                                         ');
                                 rl.question('---> ingrese una contraseña',function(password){
                                     console.log('                                         ');
                                 console.log('======================================== ')
@@ -156,19 +166,28 @@ function register(){
 
 // Inicio de Sesion Facebook ------------------------
 function login(){
+    console.log('======================================== ')
+    console.log('            Iniciar Sesion               ')
+    console.log('======================================== ')
+    console.log('                                         ');
     console.log(`---> Ya tiene una cuenta?`)
     rl.question(`---> Si ya tiene una cuentra presione Y de lo contrario presione N `, function(register){
+        console.log('                                         ');
         if(register == 'y' || register == 'Y'){
             rl.question(`---> Ingrese su correo electronico o numero de telefono `, function(phone){
+                console.log('                                         ');
                 console.log(`---> Ingrese su contraseña `)
                 rl.question(`---> Si olvido su contraseña digite N `,function(password){
-                   if(password == `N` || password == `n`){
+                    console.log('                                         ');
+                    if(password == `N` || password == `n`){
                         rl.question(`---> Ingrese su nueva contraseña `, function(reset){
+                            console.log('                                         ');
                             console.log(`Su nueva contraseña es ${reset}`)
                             rl.close();
                         })
                    }else{
-                        rl.question(`---> Desea iniciar sesion? `, function(login){
+                        console.log('                                         ');    
+                        rl.question(`===> Desea iniciar sesion? `, function(login){
                             if(login == 'Si' || login == 'si' || login == 'SI' || login == 'sI'){
                                 console.log('                                         ');
                                 console.log('======================================== ')
@@ -198,7 +217,9 @@ function login(){
             console.log('======================================== ')
             rl.close();
         }else{
+            console.log('                                         ');
             console.log(`>>>> ¡¡La ${register} opcion no es valida!! <<<<`)
+            console.log('                                         ');
             rl.close();
         }
     })
@@ -207,17 +228,139 @@ function login(){
 
 // Preguntas y respuestas ------------------------
 function AQ(){
-    rl.question(`---> Ingrese su nombre `, function(name){
-       rl.question(`---> Cuantas preguntas desea realizar `, function(question){
-        let n = 0;
-        while( n == question){
-            rl.question(`Ingrese la pregunta que desea realizar`, function(a){
-                console.log(`${a}`)
+    console.log('======================================== ')
+    console.log('       Preguntas y respuestas            ')
+    console.log('======================================== ')
+    console.log('                                         ');
+    rl.question(`---> 1. Ingrese una pregunta: `, function(pre1){
+        console.log('                                         ');
+        rl.question(`---> 2. Ingrese otra pregunta: `, function(pre2){
+            console.log('                                         ');
+            rl.question(`---> 3. Ingrese otra pregunta: `, function(pre3){
+                console.log('                                         ');
+                rl.question(`---> 4. Ingrese otra pregunta: `, function(pre4){
+                    console.log('                                         ');
+                    rl.question(
+                        "Ingrese el numero de la pregunta a contestar: ",
+                        function(opt){
+                            let S = "S";
+                            let N = "N";
+                            switch(opt){
+                                case "1":
+                                    console.log('                                         ');
+                                    console.log(`Ingresaste la pregunta 1: `, pre1);
+                                    console.log('                                         ');
+                                    rl.question(`¿Deseas contestarla S/N?: `, function(resp){
+                                        console.log('                                         ');
+                                        if(resp == S){
+                                            rl.question(`Ingresa la respuesta: `, function(respuesta){
+                                                console.log('                                         ');
+                                                console.log("|====================== Gracias por la respuesta! =========================|")
+                                            })
+                                        }else if (resp == N) {
+                                            console.log('                                         ');
+                                            console.log(
+                                              "|====================== Fin del programa =========================|"
+                                            );
+                                          } else {
+                                            console.log('                                         ');
+                                            console.log(
+                                              "|====================== Fin del programa =========================|"
+                                            );
+                                          }
+                                    })
+                                break;
+                                case "2":
+                                    console.log("Ingresaste a la pregunta 2: ", pre2);
+                                    console.log('                                         ');
+                                    rl.question("¿Deseas contestarla S/N?: ", function (resp) {
+                                        console.log('                                         ');
+                                      if (resp == S) {
+                                        console.log('                                         ');
+                                        rl.question("Ingresa la respuesta: ",function (respuesta2) {
+                                            console.log('                                         ');
+                                            console.log("|====================== Gracias por la respuesta! =========================|")
+                      
+                                        }
+                                        );
+                                       
+                                      } else if (resp == N) {
+                                        console.log('                                         ');
+                                        console.log(
+                                          "|====================== Fin del programa =========================|"
+                                        );
+                                      } else {
+                                        console.log('                                         ');
+                                        console.log(
+                                          "|====================== Fin del programa =========================|"
+                                        );
+                                      }
+                                    });
+                      
+                                    break;
+                      
+                                  case "3":
+                                    console.log('                                         ');
+                                    console.log("Ingresaste a la pregunta 3: ", pre3);
+                                    console.log('                                         ');
+                                    rl.question("¿Deseas contestarla S/N?: ", function (resp) {
+                                        console.log('                                         ');
+                                      if (resp == S) {
+                                        console.log('                                         ');
+                                        rl.question( "Ingresa la respuesta: ",function (respuesta3) {
+                                            console.log('                                         '); 
+                                            console.log("Gracias por la respuesta!")
+                                      });
+                                      console.log('                                         ');
+                                        console.log("|====================== Gracias por la respuesta! =========================|")
+                                      } else if (resp == N) {
+                                        console.log(
+                                          "|====================== Fin del programa =========================|"
+                                        );
+                                      } else {
+                                        console.log('                                         ');
+                                        console.log(
+                                          "|====================== Fin del programa =========================|"
+                                        );
+                                      }
+                                    });
+                                    break;
+
+                                    case "4":
+                                        console.log('                                         ');
+                                        console.log("Ingresaste a la pregunta 4: ", pre4);
+                                        console.log('                                         ');
+                                    rl.question("¿Deseas contestarla S/N?: ", function (resp) {
+                                        console.log('                                         ');
+                                      if (resp == S) {
+                                        console.log('                                         ');
+                                        rl.question( "Ingresa la respuesta: ",function (respuesta4) {
+                                            console.log('                                         '); 
+                                            console.log("Gracias por la respuesta!")
+                                      });
+                                      console.log('                                         ');
+                                        console.log("|====================== Gracias por la respuesta! =========================|")
+                                      } else if (resp == N) {
+                                        console.log('                                         ');
+                                        console.log(
+                                          "|====================== Fin del programa =========================|"
+                                        );
+                                      } else {
+                                        console.log('                                         ');
+                                        console.log(
+                                          "|====================== Fin del programa =========================|"
+                                        );
+                                      }
+                                    });
+                                    break;
+                                }
+                            })
+                        }
+                    )
+                })
             })
-        }
-       })
-       
-    })
-}}
+        })
+    }
+}
 
 
